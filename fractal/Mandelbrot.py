@@ -1,16 +1,17 @@
 #-*- coding:utf-8 -*-
 import pylab as pl
 
-
-min=-1.6	#x and y range	
-max=1.6
-
-
-
+#x and y range
+xmin=-1.6
+xmax=1.0
+ymin=-1.6
+ymax=1.6
+#interbal
+interbal = 0.02
 
 def m_show(x, y):
-	pl.xlim(min, max)
-	pl.ylim(min, max)
+	pl.xlim(xmin, xmax)
+	pl.ylim(ymin, ymax)
 	pl.plot(x, y, '.')
 	pl.show()
 
@@ -31,12 +32,11 @@ def check(c):
 		return 0
 
 
-
 def Mandelbrot():
 	x=list()
 	y=list()
-	for k in pl.frange(min, max, 0.02):
-		for l in pl.frange(min, max, 0.02):
+	for k in pl.frange(xmin, xmax, interbal):
+		for l in pl.frange(ymin, ymax, interbal):
 			#c = x + iy
 			c =k + (l*1j)
 			if check(c)==1:
@@ -44,8 +44,6 @@ def Mandelbrot():
 				y.append(l)
 
 	m_show(x, y)
-
-
 
 if __name__ == '__main__':
 	Mandelbrot()
