@@ -1,16 +1,11 @@
-###############################################
-#  CAV.py
-#  2-d CA visualizer
-# Usage : CAV.py  evolution-file
-###############################################
 import Tkinter,sys
 
 PIXEL = 5         # pixel size
 
-argvs = sys.argv   # command line argument list
-argc = len(argvs)  # the no. of arguments
+argvs = sys.argv   
+argc = len(argvs)  
 
-########  read file into array[][]
+#  read file into array[][]
 fd = open(argvs[1],"r")    # input configuration
 array = []
 for line in fd:
@@ -20,7 +15,7 @@ fd.close()
 HEIGHT = len(array)
 WIDTH = len(conf)
 
-######  display array[][]
+#  display array
 root = Tkinter.Tk()
 frm = Tkinter.Frame(root)
 cnv = Tkinter.Canvas(frm, width = WIDTH * PIXEL + 3, height = HEIGHT * PIXEL + 3)

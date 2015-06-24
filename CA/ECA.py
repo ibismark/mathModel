@@ -1,18 +1,12 @@
-###############################################
-#  ECA.py
-#  elementary CA simulator with periodic boundary conditions
-# Usage : ECA.py rule-no time-steps initial-configuration-file
-###############################################
 import sys  # sys module 
 
-argvs = sys.argv   # command line argument list
-argc = len(argvs)  # the no. of arguments
+argvs = sys.argv 
+argc = len(argvs) 
 
-###  set parameters
 RULE = int(argvs[1])   # rule no.
 STEPS = int(argvs[2])  # toal no. of steps
 
-### make rule table
+# make rule table
 rule =[0] * 8      # rule[0..7]   rule[0]<=000, rule[7]<=111
 for i in range(8):   # create list [0 1 ... 7 ]
    rule[i] = RULE % 2
@@ -20,7 +14,7 @@ for i in range(8):   # create list [0 1 ... 7 ]
 
 #print(rule)
 
-##### read initial configuration
+# read initial configuration
 fd = open(argvs[3],"r") 
 buff = fd.readline()
 fd.close()
@@ -30,7 +24,7 @@ CELLS = len(confStr)         # the no. of cells
 conf = list(map(int,confStr))  # string list -> int list
 print(" ".join(map(str,conf)))
 
-#### transiton
+# transiton
 for step in range(STEPS-1):
      for x in range(CELLS):
            nextConf[x] = rule[ conf[(x-1+CELLS) % CELLS] * 4 + conf[x] * 2 + conf[(x+1)%CELLS] ]

@@ -1,12 +1,7 @@
-#################################
-#  pseudo random number generator
-#  seed is system time
-#  Usage : mkrnd.py size
-#################################
 import random,sys
 
-argvs = sys.argv   # command line argument list
-argc = len(argvs)  # the no. of arguments
+argvs = sys.argv 
+argc = len(argvs)  
 
 SIZE = int(argvs[1])
 
