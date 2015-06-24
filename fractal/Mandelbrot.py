@@ -1,4 +1,14 @@
 #-*- coding:utf-8 -*-
+
+"""
+マンデルブロ集合の描画プログラム
+	複素力学系 Zn+1 = Zn * Zn + c　の漸化式において
+	n -> 無限の時に |Zn| が発散せず有界な領域に止まるようなcの集合
+	のことをマンデルブロ集合という
+
+"""
+
+
 import pylab as pl
 
 #x and y range
@@ -17,7 +27,7 @@ def m_show(x, y):
 
 
 def check(c):
-	z = c
+	z = 0 + (0*1j)
 	n=0
 	while (n<50 and abs(z)<2):
 		#complex dynamical
